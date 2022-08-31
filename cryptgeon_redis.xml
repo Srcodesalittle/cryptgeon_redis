@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>cryptgeon_redis</Name>
+  <Repository>cupcakearmy/cryptgeon</Repository>
+  <Registry>https://hub.docker.com/r/cupcakearmy/cryptgeon</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>cryptgeon is a secure, open source sharing note or file service inspired by PrivNote.&#xD;
+each note has a generated id (256bit) and key 256(bit). The id is used to save &amp;amp; retrieve the note. the note is then encrypted with aes in gcm mode on the client side with the key and then sent to the server. data is stored in memory and never persisted to disk. the server never sees the encryption key and cannot decrypt the contents of the notes even if it tried to.&#xD;
+&#xD;
+This container was built using SmartPhoneLover's cryptgeon but runs using Redis instead of memcache. Also has extra variables that can be configured.&#xD;
+This requires Redis to be already running. &#xD;
+&#xD;
+I obtained SSL certificate through NGINX proxy manager and let's encrypt.</Overview>
+  <Category>Cloud: Productivity: Security: Other: Network:Web Network:Proxy Network:Privacy</Category>
+  <WebUI>http://[IP]:[PORT:5000]</WebUI>
+  <TemplateURL/>
+  <Icon>https://github.com/cupcakearmy/cryptgeon/blob/main/design/favicon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1661925981</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>Redis&#xD;
+ HTTPS certificate (NPM/Nginx)</Requires>
+  <Config Name="WebUI" Target="5000" Default="5000" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">5000</Config>
+  <Config Name="REDIS" Target="REDIS" Default="redis://&amp;lt;serverip&amp;gt;:6379" Mode="" Description="This assumes you did not setup a username/password when setting up your Redis container. The default port is 6379 for Redis.&#13;&#10;If you do have  a username/pwd follow syntax here https://docs.rs/redis/latest/redis/#connection-parameters" Type="Variable" Display="always" Required="true" Mask="false">redis://&lt;serverip&gt;:6379</Config>
+  <Config Name="SIZE_LIMIT" Target="SIZE_LIMIT" Default="1 KiB" Mode="" Description="Max size for body (Default: 1KiB). Accepted values according to byte-unit.&#13;&#10;512 MiB is the maximum allowed.&#13;&#10;The frontend will show that number including the ~35% encoding overhead." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="MAX_VIEWS" Target="MAX_VIEWS" Default="100" Mode="" Description="Maximal number of views." Type="Variable" Display="always" Required="false" Mask="false">1</Config>
+  <Config Name="MAX_EXPIRATION" Target="MAX_EXPIRATION" Default="360" Mode="" Description="Maximal expiration in minutes." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="ALLOW_ADVANCED" Target="ALLOW_ADVANCED" Default="true" Mode="" Description="Allow custom configuration. If set to false all notes will be one view only." Type="Variable" Display="always" Required="false" Mask="false"/>
+</Container>
