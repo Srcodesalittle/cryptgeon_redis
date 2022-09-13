@@ -7,7 +7,7 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support/>
+  <Support>https://forums.unraid.net/topic/128263-support-lamp-cryptgeon_redis/</Support>
   <Project/>
   <Overview>cryptgeon is a secure, open source sharing note or file service inspired by PrivNote.&#xD;
 each note has a generated id (256bit) and key 256(bit). The id is used to save &amp;amp; retrieve the note. the note is then encrypted with aes in gcm mode on the client side with the key and then sent to the server. data is stored in memory and never persisted to disk. the server never sees the encryption key and cannot decrypt the contents of the notes even if it tried to.&#xD;
